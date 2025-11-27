@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статическая страница</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='s1.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Добро пожаловать на мою страницу</h1>
+        </header>
+        
+        <main>
+            <div class="card">
+                <h2>О нас</h2>
+                <p>Это пример статической страницы с CSS стилями.</p>
+                <ul>
+                    <li>Пункт 1</li>
+                    <li>Пункт 2</li>
+                    <li>Пункт 3</li>
+                </ul>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 Моя компания</p>
+        </footer>
+    </div>
+</body>
+</html>
