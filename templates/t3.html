@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='s3.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="university-header">
+            <h1>{{ university.name }}</h1>
+            <div class="university-info">
+                <p><strong>Основан:</strong> {{ university.founded }} год</p>
+                <p><strong>Местоположение:</strong> {{ university.location }}</p>
+                <p><strong>Факультеты:</strong> {{ university.departments|join(', ') }}</p>
+            </div>
+        </header>
+
+        <main>
+            <h2>Список студентов</h2>
+            
+            <div class="stats">
+                <p>Всего студентов: {{ students|length }}</p>
+                <p>Средний балл: {{ "%.2f"|format(students|map(attribute='grade')|sum / students|length) }}</p>
+            </div>
+
+            <table class="students-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя</th>
+                        <th>Возраст</th>
+                        <th>Средний балл</th>
+                        <th>Факультет</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr class="{% if student.grade >= 4.5 %}excellent{% elif student.grade >= 4.0 %}good{% else %}average{% endif %}">
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.age }}</td>
+                        <td>{{ student.grade }}</td>
+                        <td>{{ student.faculty }}</td>
+                        <td>
+                            {% if student.grade >= 4.5 %}
+                                <span class="status excellent">Отличник</span>
+                            {% elif student.grade >= 4.0 %}
+                                <span class="status good">Хорошист</span>
+                            {% else %}
+                                <span class="status average">Удовлетворительно</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="faculty-breakdown">
+                <h3>Распределение по факультетам:</h3>
+                <ul>
+                    {% for department in university.departments %}
+                    <li>
+                        {{ department }}: 
+                        {{ students|selectattr('faculty', 'equalto', department)|list|length }} студентов
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

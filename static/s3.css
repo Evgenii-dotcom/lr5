@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.university-header {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.university-header h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.university-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.university-info p {
+    background: #f8f9fa;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+main {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.stats p {
+    font-weight: bold;
+    color: #495057;
+}
+
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.students-table th {
+    background: #34495e;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.students-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.students-table tr:hover {
+    background: #f8f9fa;
+}
+
+.students-table tr.excellent {
+    background: #d4edda;
+}
+
+.students-table tr.good {
+    background: #fff3cd;
+}
+
+.students-table tr.average {
+    background: #f8d7da;
+}
+
+.status {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status.excellent {
+    background: #28a745;
+    color: white;
+}
+
+.status.good {
+    background: #ffc107;
+    color: #212529;
+}
+
+.status.average {
+    background: #dc3545;
+    color: white;
+}
+
+.faculty-breakdown {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.faculty-breakdown h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.faculty-breakdown ul {
+    list-style: none;
+}
+
+.faculty-breakdown li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #dee2e6;
+    font-weight: 500;
+}
+
+.faculty-breakdown li:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .university-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .students-table {
+        font-size: 0.9rem;
+    }
+    
+    .students-table th,
+    .students-table td {
+        padding: 0.5rem;
+    }
+}
